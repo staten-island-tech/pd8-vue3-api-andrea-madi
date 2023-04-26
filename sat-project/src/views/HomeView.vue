@@ -16,6 +16,6 @@ getAPI()
 
 <template>
   <main>
-<!-- // hii -->
+    <h1>hello world</h1>
   </main>
 </template>
