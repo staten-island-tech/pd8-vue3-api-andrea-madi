@@ -1,15 +1,9 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-</template>
+<div>
+  
+</div>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<!-- <scri src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+<script>
+import { Bar } from 'vue-chartjs'
+</script>
