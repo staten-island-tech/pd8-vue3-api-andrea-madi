@@ -1,9 +1,22 @@
-<div>
-  
-</div>
+<template>
+  <div>
+    <BarChart />
 
+  </div>
+</template>
 <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
 <script>
-  import { Bar } from 'vue-chartjs'
+  import BarChart from '../components/BarChart.vue'
+  export default {
+  name: 'About',
+  components: { BarChart }
+}
 </script>
+
+<style>
+
+*, body{
+  background-color: green;
+}
+</style>

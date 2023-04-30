@@ -1,11 +1,5 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-import BarChart from './components/BarChart.vue'
-
-export default {
-  name: 'App',
-  components: { BarChart }
-}
 </script>
 
 <template>
@@ -15,10 +9,9 @@ export default {
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <h1>hi</h1>
       </nav>
-      
-      <BarChart />
-
+    
     </div>
   </header>
 
