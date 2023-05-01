@@ -1,4 +1,9 @@
+<template>
+  <BarChart />
+</template>
+
 <script setup>
+import BarChart from '../components/BarChart.vue'
 import { ref, onMounted } from 'vue'
 const api = ref('')
 async function getAPI() {
@@ -11,9 +16,3 @@ onMounted(() => {
   getAPI()
 })
 </script>
-
-<template>
-  <main>
-    <h1>hello world</h1>
-  </main>
-</template>
