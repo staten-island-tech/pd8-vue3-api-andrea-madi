@@ -74,7 +74,8 @@ header{
   font-size: 2rem;
 }
 .image{
-  height: 70vh;
+  height: 60vh;
+  margin: 3rem;
 }
 .pic{
   height: 70vh;

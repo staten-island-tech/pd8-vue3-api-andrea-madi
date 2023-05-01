@@ -1,5 +1,6 @@
-@import './base.css';
-*, body, html{
+*,
+body,
+html {
   background-color: rgb(85, 110, 146);
   font: 1.5rem;
   font-family: 'Bungee Shade', cursive;
@@ -13,12 +14,13 @@
   font-weight: normal;
 }
 
-a{
+a {
+  display: flex;
+  justify-content: space-between;
   text-decoration: none;
   transition: 0.4s;
   font-family: 'Bungee Shade', cursive;
-  margin: 0.5rem;
-  width: 25vw;
+  width: 20vw;
 }
 
 @media (hover: hover) {
@@ -27,4 +29,3 @@ a{
     background-color: rgba(0, 23, 43, 0.3);
   }
 }
-
