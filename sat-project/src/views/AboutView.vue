@@ -1,22 +1,29 @@
 <template>
   <div>
-    <BarChart />
+    <DoughnutChart class="chart"/>
 
   </div>
 </template>
 <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
 <script>
-  import BarChart from '../components/BarChart.vue'
+  import DoughnutChart from '../components/DoughnutChart.vue'
   export default {
   name: 'About',
-  components: { BarChart }
+  components: { DoughnutChart }
 }
+
 </script>
 
 <style>
 
 *, body{
-  background-color: green;
+  font: black;
+}
+
+.chart{
+  display: flex;
+  justify-content: center;
+  height: 90vh;
 }
 </style>
