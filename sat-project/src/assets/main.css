@@ -20,7 +20,7 @@ a {
   text-decoration: none;
   transition: 0.4s;
   font-family: 'Bungee Shade', cursive;
-  width: 20vw;
+  width: 30%;
 }
 
 @media (hover: hover) {
