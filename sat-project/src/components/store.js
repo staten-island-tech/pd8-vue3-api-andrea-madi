@@ -25,5 +25,6 @@ export const store = reactive({
   mmathavg: [],
   mreadingavg: [],
   mwritingavg: [],
-  barData: []
+  barData: [],
+  readingscore: []
 })

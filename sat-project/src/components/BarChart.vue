@@ -50,11 +50,11 @@ export default {
     onChange() {
       this.updateData()
     },
-    avgreading(array, boroughavg) {
+    avgreading(array) {
       let sum = array.reduce((a, b) => a + b, 0)
       let index = array.length
       let average = sum / index
-      boroughavg.push(average)
+      store.readingscore.push(average)
     },
     avgwriting(array) {
       let sum = array.reduce((a, b) => a + b, 0)
