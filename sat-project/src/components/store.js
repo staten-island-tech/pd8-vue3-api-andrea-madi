@@ -1,10 +1,9 @@
 import { reactive } from 'vue'
 export const store = reactive({
   data: [],
-  curtis: [],
-  tech: [],
-  csi: [],
-  tottenville: [],
-  stuy: [],
-  mckee: []
+  si: [],
+  bk: [],
+  bx: [],
+  q: [],
+  m: [],
 })

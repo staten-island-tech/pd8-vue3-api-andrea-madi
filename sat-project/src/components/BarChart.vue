@@ -49,94 +49,59 @@ export default {
   methods: {
     onChange() {
       this.updateData()
+    },
+    convertNum(array){
+      array.forEach((el)=>{
+        if (isNaN(parseInt(el.sat_critical_reading_avg_score))) {
+          el.sat_critical_reading_avg_score = 0
+        } else {
+          el.sat_critical_reading_avg_score = parseInt(el.sat_critical_reading_avg_score)
+        }
+        if (isNaN(parseInt(el.sat_math_avg_score))) {
+          el.sat_math_avg_score = 0
+        } else {
+          el.sat_math_avg_score = parseInt(el.sat_math_avg_score)
+        }
+        if (isNaN(parseInt(el.sat_writing_avg_score))) {
+          el.sat_writing_avg_score = 0
+        } else {
+          el.sat_writing_avg_score = parseInt(el.sat_writing_avg_score)
+        }
+      })
     }
   },
   async mounted() {
     try {
       const response = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
       const array = await response.json()
-      //   const filtered = score.filter((x) => {
-      //     return x.school_name !== undefined
-      //   })
-      //   const curtis = filtered.filter((e) => {
-      //     return e.school_name.includes('CURTIS HIGH SCHOOL')
-      //   })
-      //   const csi = filtered.filter((e) => {
-      //     return e.school_name.includes('CSI HIGH SCHOOL FOR INTERNATIONAL STUDIES')
-      //   })
-      //   const tech = filtered.filter((e) => {
-      //     return e.school_name.includes('STATEN ISLAND TECHNICAL HIGH SCHOOL')
-      //   })
-      //   const TOTTENVILLE = filtered.filter((e) => {
-      //     return e.school_name.includes('TOTTENVILLE HIGH SCHOOL')
-      //   })
-      //   const stuy = filtered.filter((e) => e.school_name.includes('STUYVESANT HIGH SCHOOL')
-      //   )
-      //   const mckee = filtered.filter((e) => {
-      //     return e.school_name.includes('RALPH R. MCKEE CAREER AND TECHNICAL EDUCATION HIGH SCHOOL')
-      //   })
       console.log(array)
 
-      array.forEach((el) => {},
-        /* if (el.school_name === 'CURTIS HIGH SCHOOL') {
-          store.curtis.push(parseInt(el.sat_math_avg_score))
-        } else {
-          //store.curtis.push(0)
-        }
-        if (el.school_name === 'RALPH R. MCKEE CAREER AND TECHNICAL EDUCATION HIGH SCHOOL') {
-          store.mckee.push(parseInt(el.sat_math_avg_score))
-        } else {
-          //store.mckee.push(0)
-        }
-        if (el.school_name === 'STUYVESANT HIGH SCHOOL') {
-          store.stuy.push(parseInt(el.sat_math_avg_score))
-        } else {
-          //store.stuy.push(0)
-        }
-        if (el.school_name === 'TOTTENVILLE HIGH SCHOOL') {
-          store.tottenville.push(parseInt(el.sat_math_avg_score))
-        } else {
-          //store.tottenville.push(0)
-        }
-        if (el.school_name === 'STATEN ISLAND TECHNICAL HIGH SCHOOL') {
-          store.tech.push(parseInt(el.sat_math_avg_score))
-        } else {
-          //store.tech.push(0)
-        }
-        if (el.school_name === 'CSI HIGH SCHOOL FOR INTERNATIONAL STUDIES') {
-          store.csi.push(parseInt(el.sat_math_avg_score))
-        } else {
-          //store.csi.push(0)
+      array.forEach((el) => {
+        if (el.dbn[2]=== 'M') {
+          store.m.push(el)
+          this.convertNum(store.m)
+        } else if(el.dbn[2] === 'R'){
+          store.si.push(el)
+          this.convertNum(store.si)
+        } else if(el.dbn[2 === 'K']){
+          store.bk.push(el)
+          this.convertNum(store.bk)
+        } else if(el.dbn[2] === 'Q'){
+          store.q.push(el)
+          this.convertNum(store.q)
+        } else{
+          store.bx.push(el)
+          this.convertNum(store.bx)
         }
       })
-      console.log(this.selected)
-      this.updateData = () => {
-        const chart = this.$refs.bar.chart
-        if (this.selected === 'all!') {
-          this.chartData.labels = schools
-          this.chartData.datasets[0].data = [
-            store.curtis,
-            store.csi,
-            store.tech,
-            store.tottenville,
-            store.stuy,
-            store.mckee
-          ]
-        } else {
-          this.chartData.labels = [this.selected]
-          this.chartData.datasets[0].data = [store.curtis]
-        } */
-        // chart.destroy()
-        // chart.draw()
-     //}
+        console.log(store.bx)
       this.chartData = {
         labels: [
-          'CURTIS HIGH SCHOOL',
-          'CSI HIGH SCHOOL FOR INTERNATIONAL STUDIES',
-          'STATEN ISLAND TECHNICAL HIGH SCHOOL',
-          'TOTTENVILLE HIGH SCHOOL',
-          'STUYVESANT HIGH SCHOOL',
-          'RALPH R. MCKEE CAREER AND TECHNICAL EDUCATION HIGH SCHOOL'
+          'STATEN ISLAND',
+          'MANHATTAN',
+          'BROOKLYN',
+          'BRONX',
+          'QUEENS'
         ],
         datasets: [
           {
@@ -158,5 +123,7 @@ export default {
     } catch (e) {
       console.log(e)
     }
-  }
+
+
+  }}
 </script>
