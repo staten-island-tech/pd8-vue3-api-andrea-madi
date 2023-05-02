@@ -3,12 +3,9 @@
   <select v-model="selected" @change="onChange()">
     <!-- <option v-for="option in options" :value="option.value">{{ option.text }}</option> -->
     <option>all!</option>
-    <option>CURTIS HIGH SCHOOL</option>
-    <option>CSI HIGH SCHOOL FOR INTERNATIONAL STUDIES</option>
-    <option>STATEN ISLAND TECHNICAL HIGH SCHOOL</option>
-    <option>TOTTENVILLE HIGH SCHOOL</option>
-    <option>STUYVESANT HIGH SCHOOL</option>
-    <option>RALPH R. MCKEE CAREER AND TECHNICAL EDUCATION HIGH SCHOOL</option>
+    <option>math</option>
+    <option>reading</option>
+    <option>writing</option>
   </select>
   <div>{{ selected }}</div>
 </template>
@@ -79,17 +76,9 @@ export default {
       //     return e.school_name.includes('RALPH R. MCKEE CAREER AND TECHNICAL EDUCATION HIGH SCHOOL')
       //   })
       console.log(array)
-      const schools = [
-        'CURTIS HIGH SCHOOL',
-        'CSI HIGH SCHOOL FOR INTERNATIONAL STUDIES',
-        'STATEN ISLAND TECHNICAL HIGH SCHOOL',
-        'TOTTENVILLE HIGH SCHOOL',
-        'STUYVESANT HIGH SCHOOL',
-        'RALPH R. MCKEE CAREER AND TECHNICAL EDUCATION HIGH SCHOOL'
-      ]
 
-      array.forEach((el) => {
-        if (el.school_name === 'CURTIS HIGH SCHOOL') {
+      array.forEach((el) => {},
+        /* if (el.school_name === 'CURTIS HIGH SCHOOL') {
           store.curtis.push(parseInt(el.sat_math_avg_score))
         } else {
           //store.curtis.push(0)
@@ -136,10 +125,10 @@ export default {
         } else {
           this.chartData.labels = [this.selected]
           this.chartData.datasets[0].data = [store.curtis]
-        }
+        } */
         // chart.destroy()
         // chart.draw()
-      }
+     //}
       this.chartData = {
         labels: [
           'CURTIS HIGH SCHOOL',
@@ -170,5 +159,4 @@ export default {
       console.log(e)
     }
   }
-}
 </script>
