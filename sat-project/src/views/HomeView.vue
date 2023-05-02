@@ -1,18 +1,19 @@
 <template>
-  <BarChart />
+  <div class="container">
+    <header>this is the home page</header>
+  </div>
+  
 </template>
 
 <script setup>
-import BarChart from '../components/BarChart.vue'
-import { ref, onMounted } from 'vue'
-const api = ref('')
-async function getAPI() {
-  let res = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
-  let data = await res.json()
-  api.value = data.results
-  console.log(data)
-}
-onMounted(() => {
-  getAPI()
-})
+
 </script>
+
+<style>
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+</style>

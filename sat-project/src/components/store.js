@@ -26,5 +26,12 @@ export const store = reactive({
   mreadingavg: [],
   mwritingavg: [],
   barData: [],
-  readingscore: []
+  readingscore: [],
+  borough: {
+    statenisland: [],
+    brooklyn: [],
+    queens: [],
+    bronx: [],
+    manhattan: []
+  }
 })
