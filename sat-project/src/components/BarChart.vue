@@ -50,23 +50,44 @@ export default {
     onChange() {
       this.updateData()
     },
-    convertNum(array){
-      array.forEach((el)=>{
+    avgreading(array, boroughavg) {
+      let sum = array.reduce((a, b) => a + b, 0)
+      let index = array.length
+      let average = sum / index
+      boroughavg.push(average)
+    },
+    avgwriting(array) {
+      let sum = array.reduce((a, b) => a + b, 0)
+      let index = array.length
+      let average = sum / index
+      store.barData.push(average)
+    },
+    avgmath(array) {
+      let sum = array.reduce((a, b) => a + b, 0)
+      let index = array.length
+      let average = sum / index
+      store.barData.push(average)
+    },
+    convertNum(array, readingscore, mathscore, writingscore) {
+      array.forEach((el) => {
         if (isNaN(parseInt(el.sat_critical_reading_avg_score))) {
           el.sat_critical_reading_avg_score = 0
         } else {
           el.sat_critical_reading_avg_score = parseInt(el.sat_critical_reading_avg_score)
         }
+        readingscore.push(el.sat_critical_reading_avg_score)
         if (isNaN(parseInt(el.sat_math_avg_score))) {
           el.sat_math_avg_score = 0
         } else {
           el.sat_math_avg_score = parseInt(el.sat_math_avg_score)
         }
+        mathscore.push(el.sat_critical_math_avg_score)
         if (isNaN(parseInt(el.sat_writing_avg_score))) {
           el.sat_writing_avg_score = 0
         } else {
           el.sat_writing_avg_score = parseInt(el.sat_writing_avg_score)
         }
+        writingscore.push(el.sat_critical_writing_avg_score)
       })
     }
   },
@@ -77,32 +98,53 @@ export default {
       console.log(array)
 
       array.forEach((el) => {
-        if (el.dbn[2]=== 'M') {
+        if (el.dbn[2] === 'M') {
           store.m.push(el)
-          this.convertNum(store.m)
-        } else if(el.dbn[2] === 'R'){
+          this.convertNum(store.m, store.mreading, store.mmath, store.mwriting)
+          this.avgreading(store.mreading)
+          this.avgwriting(store.mwriting)
+          this.avgmath(store.mmath)
+        } else if (el.dbn[2] === 'R') {
           store.si.push(el)
-          this.convertNum(store.si)
-        } else if(el.dbn[2 === 'K']){
+          this.convertNum(store.si, store.sireading, store.simath, store.siwriting)
+          this.avgreading(store.sireading)
+          this.avgwriting(store.siwriting)
+          this.avgmath(store.simath)
+        } else if (el.dbn[2 === 'K']) {
           store.bk.push(el)
-          this.convertNum(store.bk)
-        } else if(el.dbn[2] === 'Q'){
+          this.convertNum(store.bk, store.bkreading, store.bkmath, store.bkwriting)
+          this.avgreading(store.bkreading)
+          this.avgwriting(store.bkwriting)
+          this.avgmath(store.bkmath)
+        } else if (el.dbn[2] === 'Q') {
           store.q.push(el)
-          this.convertNum(store.q)
-        } else{
+          this.convertNum(store.q, store.qreading, store.qmath, store.qwriting)
+          this.avgreading(store.qreading)
+          this.avgwriting(store.qwriting)
+          this.avgmath(store.qmath)
+        } else {
           store.bx.push(el)
-          this.convertNum(store.bx)
+          this.convertNum(store.bx, store.bxreading, store.bxmath, store.bxwriting)
+          this.avgreading(store.bxreading)
+          this.avgwriting(store.bxwriting)
+          this.avgmath(store.bxmath)
         }
       })
-        console.log(store.bx)
+      console.log(store.bx)
+
+      console.log(store.mTotal)
+      store.mmathavg.push(store.mTotal.reduce((a, b) => a + b, 0))
+      console.log(store.qTotal)
+      store.mreadingavg.push(store.qTotal.reduce((a, b) => a + b, 0))
+      console.log(store.bkTotal)
+      store.mwritingavg.push(store.bkTotal.reduce((a, b) => a + b, 0))
+      console.log(store.siTotal)
+      store.siData.push(store.siTotal.reduce((a, b) => a + b, 0))
+      console.log(store.bxTotal)
+      store.bxData.push(store.bxTotal.reduce((a, b) => a + b, 0))
+
       this.chartData = {
-        labels: [
-          'STATEN ISLAND',
-          'MANHATTAN',
-          'BROOKLYN',
-          'BRONX',
-          'QUEENS'
-        ],
+        labels: ['STATEN ISLAND', 'MANHATTAN', 'BROOKLYN', 'BRONX', 'QUEENS'],
         datasets: [
           {
             label: 'average math sat score!',
@@ -114,7 +156,14 @@ export default {
               'rgb(54, 162, 25, .3)',
               'rgb(54, 17, 297, .3)'
             ],
-            data: [store.curtis, store.csi, store.tech, store.tottenville, store.stuy, store.mckee]
+            data: [
+              // store.mreading,
+              // store.bkreading,
+              // store.sireading,
+              // store.bxreading,
+              // store.qreading
+              1, 2, 3, 4
+            ]
           }
         ]
       }
@@ -123,7 +172,6 @@ export default {
     } catch (e) {
       console.log(e)
     }
-
-
-  }}
+  }
+}
 </script>
