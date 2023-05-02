@@ -27,12 +27,18 @@ export default {
       loaded: false,
       chartData: null,
       chartOptions: {
-        responsive: true
+        responsive: true,
+          legend: {
+            labels: {
+              fontColor: 'red'
+            }
+          }
       }
     }
   },
   async mounted() {
     try {
+      store.dataValues = []
       let res = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
       let data = await res.json()
       data.forEach((el) => {
@@ -100,7 +106,8 @@ export default {
               'rgb(290, 205, 86, .3)',
               'rgb(55, 9, 132, .3)',
               'rgb(54, 162, 25, .3)'
-            ]
+            ],
+            
           }
         ]
       }

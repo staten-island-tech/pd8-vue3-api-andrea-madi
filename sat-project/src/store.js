@@ -16,5 +16,6 @@ export const store = reactive({
   bkData: [],          // sum of test takers in brooklyn
   siData: [],          // sum of test takers in staten island
   bxData: [],           // sum of test takers in bronx
-  dataValues: []
+  dataValues: [],
+  barData: [],
 })
