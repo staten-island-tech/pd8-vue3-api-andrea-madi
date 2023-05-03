@@ -30,7 +30,7 @@ export default {
         responsive: true,
           legend: {
             labels: {
-              fontColor: 'red'
+              fontColor: '#000000'
             }
           }
       }
@@ -107,7 +107,7 @@ export default {
               'rgb(55, 9, 132, .3)',
               'rgb(54, 162, 25, .3)'
             ],
-            
+            color: '#000'
           }
         ]
       }

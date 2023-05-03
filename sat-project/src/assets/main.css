@@ -2,6 +2,7 @@
 body,
 html {
   background-color: rgb(85, 110, 146);
+  /* background-color: white; */
   font: 1.5rem;
   font-family: 'Bungee Shade', cursive;
   color: rgba(255, 255, 255, 0.7);

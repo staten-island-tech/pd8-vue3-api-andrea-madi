@@ -1,6 +1,6 @@
 <template>
     <header>this will be madi's bar</header>
-    <BarChart/>
+    <BarChart class="bar"/>
 </template>
 
 <script>
@@ -10,3 +10,12 @@ export default{
     components: { BarChart }
 }
 </script>
+
+<style>
+.bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+</style>
