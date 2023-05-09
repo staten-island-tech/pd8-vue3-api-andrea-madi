@@ -59,13 +59,19 @@ export const store = reactive({
   bxMath: [],
   bxReading: [],
   bxWriting: [],
+
   avg: function(array, obj){
+    // find the average of an array
+    // push that average into an array of averages
     let sum = array.reduce((a,b)=>a+b,0)
     let index = array.length
     let avg = sum/index
     obj.push(avg)
   },
-  convertNum: function(array){
+
+  convertNum: function(array){ 
+    // converts the math/reading/writing scores to numbers  
+    // if the score is not an integer value, then set the score to be 0
     array.forEach((el)=>{
       if (isNaN(parseInt(el.sat_critical_reading_avg_score))) {
         el.sat_critical_reading_avg_score = 0
@@ -84,7 +90,10 @@ export const store = reactive({
       }
     })
   },
+
   sort: function(array, m, q, bk, si, bx){
+    // outcome: create arrays of all the data from each borough
+    // only sorts once
     array.forEach((el)=>{
       if(el.dbn[2]=== 'M'){
         m.push(el)
@@ -99,7 +108,10 @@ export const store = reactive({
       }
     })
   },
+
   scoresArr: function(array, math, reading, writing){
+    // pushes the math/reading/writing score of each borough into their own array that makes up the averages for each topic
+    // this is reiterated for each borough
     array.forEach((el)=>{
       math.push(el.sat_math_avg_score)
       reading.push(el.sat_critical_reading_avg_score)

@@ -42,7 +42,7 @@ export default {
       let res = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
       let data = await res.json()
       data.forEach((el) => {
-        if (el.dbn[2] == 'M') {
+        if (el.dbn[2] === 'M') {
           // manhattan
           store.manhattan.push(el)
           if (isNaN(parseInt(el.num_of_sat_test_takers))) {
@@ -107,7 +107,6 @@ export default {
               'rgb(55, 9, 132, .3)',
               'rgb(54, 162, 25, .3)'
             ],
-            color: '#000'
           }
         ]
       }
