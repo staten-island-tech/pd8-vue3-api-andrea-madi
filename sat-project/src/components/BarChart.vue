@@ -53,11 +53,16 @@
         chartData: null,
         selected: 'all!',
         chartOptions: {
-          responsive: true,
+        responsive: true,
+        plugins: {
           legend: {
-            color: '#000000'
+            display: true,
+            labels: {
+              color: 'white'
+            }
           }
-        }
+        }   
+      }
       }
     },
     methods: [
@@ -114,7 +119,7 @@
           { label: 'Math',
             data: [store.mMath, store.qMath, store.bkMath, store.siMath, store.bxMath],
             backgroundColor: [
-            'rgb(255, 99, 132, .3)'
+            '#C5D5EA'
             ]
           },
           {
@@ -122,7 +127,7 @@
             color: '#000000',
             data: [store.mReading, store.qReading, store.bkReading, store.siReading, store.bxReading],
             backgroundColor:[
-              'rgb(290, 205, 86, .3)'
+              '#759EB8'
             ]
 
           },
@@ -130,7 +135,7 @@
             label: 'Writing ',
             data: [store.mWriting, store.qWriting, store.bkWriting, store.siWriting, store.bxWriting],
             backgroundColor: [
-              'rgb(54, 162, 25, .3)'
+              '#7392B7'
             ]
           }
         ]
@@ -141,7 +146,7 @@
           {
             data: [store.mReading, store.qReading, store.bkReading, store.siReading, store.bxReading],
             backgroundColor:[
-              'rgb(290, 205, 86, .3)'
+              '#C5D5EA'
             ]
 
           },
@@ -153,7 +158,7 @@
           { 
             data: [store.mMath, store.qMath, store.bkMath, store.siMath, store.bxMath],
             backgroundColor: [
-            'rgb(255, 99, 132, .3)'
+            '#759EB8'
             ]
           },
         ]
@@ -164,7 +169,7 @@
           {
             data: [store.mWriting, store.qWriting, store.bkWriting, store.siWriting, store.bxWriting],
             backgroundColor: [
-              'rgb(54, 162, 25, .3)'
+              '#7392B7'
             ]
           }
         ]

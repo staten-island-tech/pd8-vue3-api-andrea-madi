@@ -28,11 +28,15 @@ export default {
       chartData: null,
       chartOptions: {
         responsive: true,
+        plugins: {
           legend: {
+            display: true,
             labels: {
-              fontColor: '#000000'
+              color: 'white'
             }
           }
+        }
+          
       }
     }
   },
@@ -101,11 +105,11 @@ export default {
           {
             data: store.dataValues,
             backgroundColor: [
-              'rgb(255, 99, 132, .3)',
-              'rgb(54, 162, 235, .3)',
-              'rgb(290, 205, 86, .3)',
-              'rgb(55, 9, 132, .3)',
-              'rgb(54, 162, 25, .3)'
+              '#C5D5EA',
+              '#759EB8',
+              '#7392B7',
+              '#D8E1E9',
+              '#B3C5D7'
             ],
           }
         ]
